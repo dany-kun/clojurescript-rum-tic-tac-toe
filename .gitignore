@@ -72,5 +72,5 @@ fabric.properties
 # *.ipr
 .idea/*
 
-/resources/public/cljs
+
 
