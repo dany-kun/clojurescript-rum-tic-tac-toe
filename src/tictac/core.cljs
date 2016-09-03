@@ -1,11 +1,20 @@
 (ns tictac.core
-  (:require [tictac.component :as component]
-            [rum.core :as rum]
-            [tictac.setup :as setup]))
+  (:require [rum.core :as rum]
+            [tictac.board.component :as board]
+            [tictac.controls.component :as controls]))
 
-(enable-console-print!)
+;(enable-console-print!)
 
-(defn render! [state]
-  (component/mount state))
+(def container (delay (js/document.getElementById "board-container")))
 
-(render! setup/state)
+(rum/defc tic-tac-toe []
+  [:div
+   (controls/c-winner)
+   (board/c-board)
+   (controls/c-controls)]
+  )
+
+(defn mount []
+  (rum/mount (tic-tac-toe) @container))
+
+(mount)

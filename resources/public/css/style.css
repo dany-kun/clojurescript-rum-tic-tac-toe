@@ -1,10 +1,80 @@
-.row {
-  margin-top: 10px;
+body {
+    background-color: #004C00;
+    color: #FFFFFF;
 }
 
+h1{
+  color: white;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 50px;
+}
+.container {
+    position: absolute;
+    top: 12%;
+    left: calc(50% - 15vh);
+}
+.current-player{
+  text-align: right;
+  margin-top: 15px;
+}
+.board {
+    background-color: orange;
+    display: flex;
+    flex-direction: column;
+}
+.row {
+    height: 10vh;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+}
 .col {
-  display: inline-block;
-  margin-left: 10px;
-  width: 20px;
-  height: 20px;
+    width: 10vh;
+    height: inherit;
+    margin: auto;
+    border: 3px solid black;
+    box-sizing: border-box;
+    display: flex;
+}
+.piece {
+    cursor: default;
+}
+.cross {
+    color: red;
+    font-weight: 900;
+    font-size: 50px;
+    margin: auto;
+}
+.circle {
+    color: green;
+    font-weight: 900;
+    font-size: 50px;
+    margin: auto;
+}
+.empty {
+    background-color: yellow;
+}
+.col .draggable {
+    cursor: move;
+}
+.col.winner {
+    background-color: white;
+}
+.restart {
+    margin-top: 50px;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    font-size: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: blue;
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.win-message {
+    height: 5vh;
+    text-align: center;
+    font-size: 26px;
 }
