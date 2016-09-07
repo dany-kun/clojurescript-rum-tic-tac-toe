@@ -9,13 +9,13 @@
     (= setup/side (count (filter #(= % player) all-places)))))
 
 (defn store-drag-position [[r c]]
-  #(.setData (.-dataTransfer %) "text" (str [r c])))
+  #(.setData (.-dataTransfer %) "text/plain" (str [r c])))
 
 (defn empty-spot? [board coord]
   (= :empty (get-in board coord)))
 
 (def retrieve-drag-position
-  #(reader/read-string (.getData (.-dataTransfer %) "text")))
+  #(reader/read-string (.getData (.-dataTransfer %) "text/plain")))
 
 (defn drop-allowed? [board src target]
   (and (empty-spot? board target)
@@ -25,6 +25,7 @@
   (fn [e]
     (let [src (retrieve-drag-position e)
           drop-allowed (drop-allowed? board src coord)]
+      (.preventDefault e)
       (when drop-allowed
         (r/update-board-state state coord src)))))
 

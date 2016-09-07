@@ -3,7 +3,7 @@
             [tictac.board.component :as board]
             [tictac.controls.component :as controls]))
 
-;(enable-console-print!)
+(enable-console-print!)
 
 (def container (delay (js/document.getElementById "board-container")))
 
